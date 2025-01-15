@@ -449,6 +449,11 @@ func (c *compiler) pseudoClassSelector(s *pseudoClassSelector) func(*html.Node) 
 		return c.nthLastOfType(s)
 	case "nth-of-type(":
 		return c.nthOfType(s)
+	case "has(":
+		return func(node *html.Node) bool {
+			panic("THIS IS HOTFIX ONLY FOR MY OWN PROJECT, WHERE I NEED A CSS VALIDATOR! " +
+				"DONT USE THIS IN PRODUCTION!")
+		}
 	default:
 		c.errorf(s.pos, "unsupported pseudo-class selector: %s", s.function)
 		return nil
