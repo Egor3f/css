@@ -434,6 +434,11 @@ func (c *compiler) pseudoClassSelector(s *pseudoClassSelector) func(*html.Node) 
 		return onlyOfTypeMatcher
 	case "root":
 		return rootMatcher
+	case "scope":
+		return func(node *html.Node) bool {
+			panic("THIS IS HOTFIX ONLY FOR MY OWN PROJECT, WHERE I NEED A CSS VALIDATOR! " +
+				"DONT USE THIS IN PRODUCTION!")
+		}
 	case "":
 	default:
 		c.errorf(s.pos, "unsupported pseudo-class selector: %s", s.ident)
